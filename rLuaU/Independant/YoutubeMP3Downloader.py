@@ -6,6 +6,7 @@ from pytubefix.cli import on_progress
 import subprocess
 import OOPBase as Base
 
+# Nice main directory
 MainDirectory = r'{replace with directory}'
 
 # Possible Uses
