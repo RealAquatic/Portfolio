@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 8px;
+}
+
+.input_field {
+    width: 90%;
+    max-width: 400px;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s ease;
+}
+
+.input_field:focus {
+    border-color: #0078ff;
+    outline: none;
+}
+
+.error_message {
+    color: #b30000;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    #output {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    padding: 15px;
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+#output p {
+    margin: 6px 0;
+    padding: 6px 10px;
+    background: #e9f1ff;
+    border-radius: 4px;
+}
+
+#output p strong {
+    color: #0056c7;
+}
+
+.button_container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    background: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s ease;
+}
+
+/* Popup */
+
+.popup {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 10px 15px;
+    border: 2px solid #0078ff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden { display: none; }
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.modal-overlay.hidden {
+    display: none;
+}
+.modal {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    width: 360px;
+    max-width: calc(100% - 40px);
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.modal-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.modal-section h3 { margin-top: 0; }
+.modal-actions { display:flex; gap:10px; margin-top:12px; }
+.modal-section ul { list-style:none; padding-left:0; max-height:160px; overflow:auto; margin:8px 0; }
+.modal-section li { padding:6px 8px; background:#f4f6fb; border-radius:4px; margin-bottom:6px; }
+
+/* Disable page elements when modal is open */
+body.modal-open .input_field:not(.modal .input_field),
+body.modal-open .button:not(.modal .button) {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Ensure modal buttons and inputs are always clickable */
+.modal .button,
+.modal .input_field {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+}
+
+/* Make sure buttons in modal are visible */
+.modal-actions .button {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}

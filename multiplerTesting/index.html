@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplayer Test</title>
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+</head>
+<body>
+    <h2>Enter your username:</h2>
+    <input class="input_field" id="username" type="text" autocomplete="off">
+
+    <h2>Type something:</h2>
+    <input class="input_field" id="input" type="text" autocomplete="off">
+
+    <p class="error_message" id="error"></p>
+
+    <div id="output"></div>
+
+    <div class="button_container">
+        <button class="button" id="host">Host</button>
+        <button class="button" id="join">Join</button>
+    </div>
+
+
+    <div id="lobbyModal" class="modal-overlay hidden">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">X</button>
+
+            <div id="hostView" class="modal-section hidden">
+                <h3>Host Lobby</h3>
+                <p>Lobby code: <strong id="lobbyCode">------</strong></p>
+                <label>Max players:
+                    <select id="maxPlayersSelect">
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                </label>
+
+                <h4>Players</h4>
+                <ul id="playersList"></ul>
+
+                <div class="modal-actions">
+                    <button class="button" id="createLobby">Create Lobby</button>
+                    <button class="button hidden" id="startGame">Start</button>
+                    <button class="button hidden" id="leaveLobby">Leave</button>
+                </div>
+            </div>
+
+            <div id="joinView" class="modal-section hidden">
+                <h3>Join Lobby</h3>
+                <label>Enter code:
+                    <input id="joinCodeInput" class="input_field" maxlength="6" autocomplete="off">
+                </label>
+                <div class="modal-actions">
+                    <button class="button" id="joinLobbyBtn">Join</button>
+                    <button class="button" id="leaveLobby2">Leave</button>
+                </div>
+
+                <h4>Players</h4>
+                <ul id="playersListJoin"></ul>
+
+                <p id="joinStatus" class="error_message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./Assets/JS/conn.js"></script>
+
+</body>
+</html>
