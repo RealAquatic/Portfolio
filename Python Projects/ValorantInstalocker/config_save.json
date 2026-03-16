@@ -1,0 +1,18 @@
+{
+  "agent_hotkeys": [
+    {
+      "hotkey": "end",
+      "agent": "Reyna"
+    },
+    {
+      "hotkey": "down",
+      "agent": "Sage"
+    },
+    {
+      "hotkey": "page down",
+      "agent": "Brimstone"
+    }
+  ],
+  "selected_agent": "Reyna",
+  "selected_role": "Duelist"
+}
