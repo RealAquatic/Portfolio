@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Assets/CSS/main.css" />
+  <title>Minecraft Clicker</title>
+</head>
+<body>
+  <div class="Header">
+    <h1>Minecraft Clicker</h1>
+  </div>
+
+  <div class="MainGrid">
+    <!-- Block Section -->
+    <div class="BlockContainer">
+      <div class="BlockContent">
+        <div id="blockCount">Blocks: 0</div>
+        <div class="clickable-block" onclick="handleClick()"></div>
+        <div id="blocksPerClickDisplay">Blocks per click: 1.00</div>
+        <div id="PassiveIncomeDisplay"></div>
+      </div>
+    </div>
+
+    <!-- Upgrades with Tabs -->
+    <div class="UpgradesContainer">
+      <div class="tabs">
+        <button class="tab-button active" onclick="showTab('base')">Base Upgrades</button>
+        <button class="tab-button" onclick="showTab('passives')">Passives</button>
+        <button class="tab-button" onclick="showTab('achievements')">Achievements</button>
+      </div>
+
+      <div class="tab-content" id="base">
+        <div class="upgrade" id="villager-upgrade">
+          <img src="Assets/Images/UpgradeIcons/Villager.png" alt="Villager" />
+          <div class="upgrade-info">
+            <h4>Villager</h4>
+            <p id="VillagerGive">+0.5 base block/click</p>
+            <p>Owned: <span id="villagerOwned">0</span></p>
+            <p>Cost: <span id="villagerCost">10</span> Blocks</p>
+          </div>
+          <div class="upgrade-buttons">
+            <button onclick="buyUpgrade('villager', 1, event)">Buy 1</button>
+            <button onclick="buyUpgrade('villager', 'max', event)">Buy Max</button>
+          </div>
+        </div>
+
+        <div class="upgrade" id="house-upgrade">
+          <img src="Assets/Images/UpgradeIcons/House.png" alt="House" />
+          <div class="upgrade-info">
+            <h4>House</h4>
+            <p>Costs 5 villagers</p>
+            <p>Owned: <span id="houseOwned">0</span></p>
+            <p>Effect: +0.5 extra block/click per villager</p>
+          </div>
+          <div class="upgrade-buttons">
+            <button onclick="buyUpgrade('house', 1, event)">Buy 1</button>
+            <button onclick="buyUpgrade('house', 'max', event)">Buy Max</button>
+          </div>
+        </div>
+
+        <div class="upgrade" id="village-upgrade">
+          <img src="Assets/Images/UpgradeIcons/Village.png" alt="Village" />
+          <div class="upgrade-info">
+            <h4>Village</h4>
+            <p>Requires 10 houses</p>
+            <p>Owned: <span id="villageOwned">0</span></p>
+            <p>Effect: +10 blocks/click per villager</p>
+          </div>
+          <div class="upgrade-buttons">
+            <button onclick="buyUpgrade('village', 1, event)">Buy 1</button>
+            <button onclick="buyUpgrade('village', 'max', event)">Buy Max</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="passives" style="display: none;">
+        <div class="upgrade" id="house-upgrade">
+          <img src="Assets/Images/UpgradeIcons/WoodenPickaxe.png" alt="Wooden Pickaxe" />
+          <div class="upgrade-info">
+            <h4>Wooden Pickaxe</h4>
+            <p>Costs <span id="woodenPickaxeCost">10</span> blocks</p>
+            <p>Owned: <span id="woodenPickaxeOwned">0</span></p>
+            <p>Effect: Generate 1 block per second per pickaxe</p>
+          </div>
+          <div class="upgrade-buttons">
+            <button onclick="buyUpgrade('WoodenPickaxe', 1, event)">Buy 1</button>
+            <button onclick="buyUpgrade('WoodenPickaxe', 'max', event)">Buy Max</button>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="tab-content" id="achievements" style="display: none;">
+        <p>Achievements will appear here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Container -->
+  <div id="notification-container"></div>
+
+  <script src="Assets/JS/script.js"></script>
+</body>
+</html>
